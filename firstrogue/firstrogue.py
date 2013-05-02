@@ -226,7 +226,10 @@ class Fighter:
                 damage = 1
 
         if critical_hit:
-            message(self.owner.name.capitalize() + ' scores a critical hit for ' + str(damage) + ' damage!', libtcod.yellow)
+            if self.owner.name == 'player':
+                message(self.owner.name.capitalize() + ' scores a critical hit for ' + str(damage) + ' damage!', libtcod.yellow)
+            else:
+                message(self.owner.name.capitalize() + ' scores a critical hit for ' + str(damage) + ' damage!', libtcod.red)
             target.fighter.take_damage(damage)
         elif damage > 0:
             #make the target take some damage
@@ -284,7 +287,7 @@ class Item:
         else:
             inventory.append(self.owner)
             objects.remove(self.owner)
-            message('You picked up a ' + self.owner.name + '!', libtcod.green)
+            message('You picked up a ' + self.owner.name + '!', libtcod.sky)
         #special case: automatically equip, if slot is open
             equipment = self.owner.equipment
             if equipment and get_equipped_in_slot(equipment.slot) is None:
@@ -335,14 +338,14 @@ class Equipment:
             old_equipment.dequip()
         #equip object and show a message about it
         self.is_equipped = True
-        message('Equipped ' + self.owner.name + ' on ' + self.slot + '.', libtcod.light_green)
+        message('Equipped ' + self.owner.name + ' on ' + self.slot + '.', libtcod.blue)
         
         
     def dequip(self):
         #deequip object and show a message about it
         if not self.is_equipped: return
         self.is_equipped = False
-        message('Removed ' + self.owner.name + ' from ' + self.slot + '.', libtcod.light_green)
+        message('Removed ' + self.owner.name + ' from ' + self.slot + '.', libtcod.blue)
         
 ##############################
 #   Function Definitions
@@ -516,7 +519,7 @@ def player_death(player):
 def monster_death(monster):
     #transform it into a nasty corpse! it doesn't block, can't be attacked
     #and doesn't move
-    message(monster.name.capitalize() + ' is dead! You gain ' + str(monster.fighter.xp) + ' experience points.', libtcod.sky)
+    message(monster.name.capitalize() + ' is dead! You gain ' + str(monster.fighter.xp) + ' experience points.', libtcod.green)
     monster.char = '%'
     monster.color = libtcod.dark_red
     monster.blocks = False
@@ -965,8 +968,11 @@ def render_all():
     #show the player's health
     render_bar(1, 1, BAR_WIDTH, 'HP', player.fighter.hp, player.fighter.max_hp,
         libtcod.light_red, libtcod.darker_red)
+    #show player's exp bar
+    level_up_xp = LEVEL_UP_BASE + player.level * LEVEL_UP_FACTOR
+    render_bar(1, 3, BAR_WIDTH, 'Exp', player.fighter.xp, level_up_xp, libtcod.green, libtcod.darker_green)
     #show dungeon level 
-    libtcod.console_print_ex(panel, 1, 3, libtcod.BKGND_NONE, libtcod.LEFT, 'Dungeon level ' + str(dungeon_level))
+    libtcod.console_print_ex(panel, 1, 5, libtcod.BKGND_NONE, libtcod.LEFT, 'Dungeon level ' + str(dungeon_level))
     
     #display names of objects under the mouse
     libtcod.console_set_default_foreground(panel, libtcod.light_gray)
@@ -1118,7 +1124,7 @@ def new_game():
 
     game_state='playing'
     #print a welcome message!
-    message('You awake to find yourself alone in a pit. Good luck, stranger.', libtcod.blue)
+    message('You awake to find yourself alone in a pit. Good luck, stranger.', libtcod.gray)
 
     #initial equipment: a dagger, rotting rags
     equipment_component = Equipment(slot='right hand', power_bonus=2)

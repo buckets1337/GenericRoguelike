@@ -1,0 +1,62 @@
+	stairs and items are no longer visible on map when outside FOV.  fix it.
+
+X	exp bar on the GUI
+
+X	recolor monster crit messages to red (as well as other message recolorings)
+
+	furniture for rooms - inc chests w/ loot
+
+	critical chance as a non-displayed stat, boostable by items and agility
+
+	level up upgrades - skills/bonuses
+
+	level up upgrades - agility boosts crit chance, toughness boosts defense
+
+	fov 'light' should have alpha fade twords edge
+
+	potential spawns of 'squads' of monsters (small chance maybe once every other floor-ish, room is MUCH harder)
+
+	potential spawns of named 'boss' monsters (very small chance, should only happen once every few dungeon floors, drop nice loot)
+
+	monster ai - FOV for monsters
+
+	Items and Equipment breaking
+
+	Some sort of Item and Equipment repair mechanic (maybe item based?)
+
+	variable heal amount
+
+	variable heal between levels
+
+	heal at level up
+
+	need to increase number of room instersections when making map
+
+	variable map size, with # of rooms and room intersections scalable with map size automatically
+
+	doors placed in mapgen at room/hall connections, start shut, can be opened by monsters if they smell you 
+		(but not at all before smell is implemented)
+
+	timer system (mainly so 'torches' can deplete, when torch is out, FOV is severely constrained)
+
+	above torch system, with torches as items that spawn on map
+
+	monsters with gear equipped
+
+	monster drops
+
+	'bag' items that open another inventory screen (will require a variable for # of slots, 
+		should be written into inventory menu)
+
+	encumberance (over max carry weight = can't move till item dropped)
+
+	monster ai - monsters tend to 'stack' when attacking, when they should flow around
+
+	monster ai - scent system for chasing player outside FOV
+
+	LONGTERM: item and monster lists broken out into separate files for ease of editing
+
+	LONGTERM: 'travel' menu allowing player to interact with 'town'.  Perhaps this is another map, perhaps it's just menus.
+		When entering town from dungeon, start again at floor 1, maybe also level 1 (but with gear kept)
+
+	LONGTERM: dynamically named and bonused items generated, similar to diablo
