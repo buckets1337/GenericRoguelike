@@ -1,8 +1,23 @@
-	stairs and items are no longer visible on map when outside FOV.  fix it.
+Monsters to add:
+X	rat
+X	skeleton
+	zombie
+	kobold
+	snake
+	goblin
 
-X	exp bar on the GUI
+Items to add:
+X	healing potion+
+	bow and arrows
 
-X	recolor monster crit messages to red (as well as other message recolorings)
+
+---------------
+
+X	stairs and items are no longer visible on map when outside FOV.  fix it
+
+	objects under mouse no longer displaying name. fix it.
+
+	equipped items move to top of list, when dequipped, move to bottom
 
 	furniture for rooms - inc chests w/ loot
 
@@ -12,7 +27,9 @@ X	recolor monster crit messages to red (as well as other message recolorings)
 
 	level up upgrades - agility boosts crit chance, toughness boosts defense
 
-	fov 'light' should have alpha fade twords edge
+	fov 'light' should have alpha fade towards edge
+
+	circular rooms in dungeon gen
 
 	potential spawns of 'squads' of monsters (small chance maybe once every other floor-ish, room is MUCH harder)
 
@@ -24,11 +41,13 @@ X	recolor monster crit messages to red (as well as other message recolorings)
 
 	Some sort of Item and Equipment repair mechanic (maybe item based?)
 
-	variable heal amount
+X	variable potion heal amount (healing is now random by default from all sources)
 
-	variable heal between levels
+X	variable heal between levels
 
-	heal at level up
+X	heal at level up
+
+X	reorganized function order and headings for better code clarity
 
 	need to increase number of room instersections when making map
 
