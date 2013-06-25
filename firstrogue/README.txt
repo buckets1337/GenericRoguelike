@@ -20,6 +20,7 @@ Controls:
 	4 - @ - 6
 	  / | \
 	1   2   3
+
 the number keys on the keypad each move you in the direction they lie in from
 the key '5'
 
@@ -34,6 +35,7 @@ i = inventory
 c = character info
 < = use stairs (go down a level)
 esc = main menu
+alt+enter = toggle fullscreen
 
 
 Thanks for trying my game!

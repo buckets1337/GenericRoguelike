@@ -1,33 +1,38 @@
 Monsters to add:
-X	rat
-X	skeleton
 	zombie
 	kobold
 	snake
 	goblin
 
 Items to add:
-X	healing potion+
 	bow and arrows
 
 
 ---------------
 
-X	stairs and items are no longer visible on map when outside FOV.  fix it
+X	objects under mouse no longer displaying name. fix it.
 
-	objects under mouse no longer displaying name. fix it.
+X	when player dies, lights go out, and map and all objects are revealed
 
-	equipped items move to top of list, when dequipped, move to bottom
+X	display health status of fighters on mouseover using descriptive terms
+
+X	equipped items move to top of list, when dequipped, move to bottom
 
 	furniture for rooms - inc chests w/ loot
 
-	critical chance as a non-displayed stat, boostable by items and agility
+	Update Save and load functions to account for master lists and timer list and global timer (check for other new data as well)
+
+X	critical chance as a non-displayed stat, boostable by items and agility...also effects chance to hit
 
 	level up upgrades - skills/bonuses
 
-	level up upgrades - agility boosts crit chance, toughness boosts defense
+X	Added hit system, where attackers can actually miss attacks
 
-	fov 'light' should have alpha fade towards edge
+X	level up upgrades - agility boosts crit chance, toughness boosts defense
+
+X	created adjustable base hit percentages for the player and all enemies
+
+X	fov 'light' should have alpha fade towards edge
 
 	circular rooms in dungeon gen
 
@@ -35,43 +40,42 @@ X	stairs and items are no longer visible on map when outside FOV.  fix it
 
 	potential spawns of named 'boss' monsters (very small chance, should only happen once every few dungeon floors, drop nice loot)
 
-	monster ai - FOV for monsters
-
 	Items and Equipment breaking
 
 	Some sort of Item and Equipment repair mechanic (maybe item based?)
-
-X	variable potion heal amount (healing is now random by default from all sources)
-
-X	variable heal between levels
-
-X	heal at level up
-
-X	reorganized function order and headings for better code clarity
 
 	need to increase number of room instersections when making map
 
 	variable map size, with # of rooms and room intersections scalable with map size automatically
 
-	doors placed in mapgen at room/hall connections, start shut, can be opened by monsters if they smell you 
-		(but not at all before smell is implemented)
+	doors placed in mapgen at room/hall connections, start shut
 
-	timer system (mainly so 'torches' can deplete, when torch is out, FOV is severely constrained)
+X	timer system (mainly so 'torches' can deplete, when torch is out, FOV is severely constrained)
 
 	above torch system, with torches as items that spawn on map
 
+X	hunger system, with a refillable hunger timer that if it hits zero, the player dies, and food spawns
+
 	monsters with gear equipped
 
-	monster drops
+	monster drops(pre-placed items should be much more rare after this is implemented)
 
 	'bag' items that open another inventory screen (will require a variable for # of slots, 
 		should be written into inventory menu)
 
 	encumberance (over max carry weight = can't move till item dropped)
 
-	monster ai - monsters tend to 'stack' when attacking, when they should flow around
+X	monster ai - monsters tend to 'stack' when attacking, when they should flow around
 
-	monster ai - scent system for chasing player outside FOV
+X	monster ai - monsters should alert and update alert-movement whenever a player is in sight.
+
+	monster ai - scent system for chasing player outside FOV (breadcrumbs)
+
+X	monster ai - alert system, with monsters traveling to location of an alert and then stopping
+
+X	monster ai - sound system, with ability to generate alerts for all monsters within a certain radius of the sound for various lengths of turns
+
+X	monster and player combat has a chance of generating sounds (monsters roar, player-generated sounds not indicated)
 
 	LONGTERM: item and monster lists broken out into separate files for ease of editing
 
