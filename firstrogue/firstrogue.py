@@ -40,7 +40,6 @@ PLAYER_POWER = 1
 PLAYER_CRITICAL = 1
 PLAYER_HIT_CHANCE = 80
 HUNGER_AMOUNT = 200
-EAT_AMOUNT = 100
 ENEMY_HIT_CHANCE = 66
 LEVEL_UP_BASE = 200
 LEVEL_UP_FACTOR = 150
@@ -59,6 +58,7 @@ FOV_LIGHT_WALLS = True
 TORCH_RADIUS = 12
 #spell params
 HEAL_AMOUNT = 50
+EAT_AMOUNT = 100
 LIGHTNING_DAMAGE = 40
 LIGHTNING_RANGE = 5
 CONFUSE_NUM_TURNS = 10
@@ -991,22 +991,6 @@ def create_sound(x, y, sound_intensity):    #generates a sound, which creates an
 #    Spells and Effects
 #$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-def cast_heal():        #heal the player
-    if player.fighter.hp == player.fighter.max_hp:
-        message('You are already at full health.', libtcod.red)
-        return 'cancelled'
-    message('Your wounds start to feel better!', libtcod.light_violet)
-    amount = int(round(HEAL_AMOUNT * libtcod.random_get_float(0, 0.5, 1.5)))
-    player.fighter.heal(amount)
-    
-def cast_heal_plus():        #heal the player, 100% to 200% of normal heal
-    if player.fighter.hp == player.fighter.max_hp:
-        message('You are already at full health.', libtcod.red)
-        return 'cancelled'
-    message('Your wounds start to feel better!', libtcod.light_violet)
-    amount = int(round(HEAL_AMOUNT * libtcod.random_get_float(0, 1.5, 2.5)))
-    player.fighter.heal(amount)
-    
 def eat():     #eat some food, refilling hunger meter
     global timer_list
     
@@ -1028,6 +1012,22 @@ def level_up_heal():    #random heal based on damage sustained
         message('You are already at full health.', libtcod.red)
         return 'cancelled'
     message('You seem to be getting your second wind...', libtcod.light_violet)
+    player.fighter.heal(amount)
+    
+def cast_heal():        #heal the player
+    if player.fighter.hp == player.fighter.max_hp:
+        message('You are already at full health.', libtcod.red)
+        return 'cancelled'
+    message('Your wounds start to feel better!', libtcod.light_violet)
+    amount = int(round(HEAL_AMOUNT * libtcod.random_get_float(0, 0.5, 1.5)))
+    player.fighter.heal(amount)
+    
+def cast_heal_plus():   #heal the player, 100% to 200% of normal heal
+    if player.fighter.hp == player.fighter.max_hp:
+        message('You are already at full health.', libtcod.red)
+        return 'cancelled'
+    message('Your wounds start to feel better!', libtcod.light_violet)
+    amount = int(round(HEAL_AMOUNT * libtcod.random_get_float(0, 1.5, 2.5)))
     player.fighter.heal(amount)
     
 def cast_lightning():   #find closest enemy inside max range and damage it
